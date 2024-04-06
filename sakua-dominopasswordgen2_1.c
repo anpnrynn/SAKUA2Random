@@ -4,7 +4,7 @@
 
 
 void gen2_1_algo_init   ( struct domino_password_algo *algo_info ) {
-	static int random[6] = { 23, 13, 17, 31, 11 };
+	static int random[6] = { 23, 13, 17,  7, 11 };
 	algo_info->pin = 2023;
 	algo_info->random = random;
 }
