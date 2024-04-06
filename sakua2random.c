@@ -27,7 +27,7 @@ int main(int argc, char *argv) {
 
 	dp = 0; s = 0; k = 0;
 	dp = domino_password_new();
-	dp->function_algo_setup( dp, 2 );
+	dp->function_algo_setup( dp, 1 );
 
 
 
