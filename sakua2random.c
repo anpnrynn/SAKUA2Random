@@ -31,7 +31,7 @@ int main(int argc, char *argv) {
 
 
 
-	FILE *fp = fopen("readable_random-11.txt", "w+");
+	FILE *fp = fopen("readable_random-11-1.txt", "w+");
 
 
 	//fprintf( stderr, "Generating for %d years, with pin = %d ", years, pin );
@@ -41,24 +41,20 @@ int main(int argc, char *argv) {
 	int j = 1;
 	dp->function_set_gen_seed( dp, 0 );
     dp->algo->function_set_pin( dp->algo, pin );
+    strcpy( dp->algo->seed, "4Pto+9k}V[{Z'>{v$(&@~y!\/f|?3mz|N1ua,n^gc#je}\"qhlW=F*2w5R+d-)^XGp8]JT`]0(ixsUY7__;LIA&)bSH-EC6=K*.BQO%rDM:<");
+    strcpy( dp->gen_seed, "4Pto+9k}V[{Z'>{v$(&@~y!\/f|?3mz|N1ua,n^gc#je}\"qhlW=F*2w5R+d-)^XGp8]JT`]0(ixsUY7__;LIA&)bSH-EC6=K*.BQO%rDM:<");
     //gen1_1_algo->pin = 200;
     //gen1_1_shuffle(gen1_1_algo, dp->shuffled );
     //dp->function_gen_shuffled( dp );
     //strcpy( dp->gen_seed, dp->shuffled);
     //strcpy( dp->algo->seed, dp->shuffled);
     pin = 2023;
-    dp->algo->function_set_pin( dp->algo, pin );
-	//fprintf( stderr, "Generating for %d years, with pin = %d ", years, pin );
 	for( i = 0; i < MULTIPLES * years ; i++ ){
 
         //fprintf(stderr, "%d", i);
         fflush(stderr);
-        dp->function_gen_shuffled( dp );
-        //strncpy( seed, dp->function_get_shuffled(dp), 108 );
         dp->algo->function_set_pin( dp->algo, pin++ );
-        //strcpy( dp->gen_seed, dp->shuffled);
-        //strcpy( dp->algo->seed, dp->shuffled);
-        //dp->algo->function_set_get_seed ( dp->algo, &seed );
+        dp->function_gen_shuffled( dp );
         fprintf( fp, "%s\n", dp->shuffled );
         fprintf( stderr, "%s\n", dp->shuffled );
         fflush(fp);
