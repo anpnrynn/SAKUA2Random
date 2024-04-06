@@ -1,0 +1,51 @@
+SAKUA2: How it works.
+
+User Visits website, lets say a banking website.
+
+Website requests login info:
+User enters: loginname
+
+
+Website prompts: [ ] unsecure location
+DOB XX/07/19YY
+Twitter : xxxxreal
+Phone : 956vvZZ977
+Random (saved by you): 1234123ffff891234 
+
+Optionally: 
+[X] unsecure location
+DOB XX/uu/eeYY
+Twitter : xxxxpppp
+Phone : zzzvvZZiii
+Random (saved by you): nnnnnnnffffmmmmmm
+
+
+Please enter:
+XXxxYYvvZZffff
+(This would generate the seed pin that is used to generate the seed string, Domino Password Algo can be used for this as well)
+
+
+
+Website prompts:
+Enter The Pin
+Enter the domino password
+
+(Domino password is then once again used to generate the final encryption key).
+
+
+The user is then authenticated and validated.
+
+
+
+The SAKUA2 is not a protocol, all information is displayed and entered is through a web browser and the encrypted channel is created using a private key algorithm.
+The SAKUA2 client and server component uses the encrypted data and HTTP header to validate and authenticate the end user.
+
+The HTTP Header should contain:
+SAKUA2-Ver1-Header : loginname, server-random:120384981237098173091723847861378479831798413874137984139, timestamp + timezone
+
+If its not HTTP or SMTP header, the MIME header mentioned above can be put in the first line or last line of every protocol header in plain text.
+
+
+This is done to couple the encryption key to the username.
+
+NOTE: THERE IS NO RESTRICTION ON PORT NUMBER, use above 1024. Websites can use different server ports for each user-session, to avoid flooding. 
