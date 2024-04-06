@@ -1,0 +1,14 @@
+#copyright Anoop Kumar Narayanan 2023 anoop.kumar.narayanan@gmail.com
+all:build
+
+build:sakua2random
+
+FLAGS=-I../ -I./ -O2 -fPIC
+
+cleanbuild: clean build tests
+
+clean:
+	rm -f *.so *.o test testkeygen testkeycreate
+
+sakua2random:sakua2random.c
+	gcc sakua2random.c -o sakua2random_make  libsakua-dominopassword.so libsakua-keycreate.so $(FLAGS)
