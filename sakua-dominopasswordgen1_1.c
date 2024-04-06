@@ -80,10 +80,14 @@ void gen1_1_shuffle     ( struct domino_password_algo *algo_info, char *data ) {
          for ( int i = 0; i < n/4; i++ ){
                if( k % 2  == 0 ){
                     gen1_1_swapchars( s1, i, n/2-i-1, n/2 );
+                    gen1_1_swapchars( s1+algo_info->random[3], i, n/2-i-1-algo_info->random[2], n/2 );
                     gen1_1_swapchars( s2, i, n/2-i-1, n/2 );
+                    gen1_1_swapchars( s1+algo_info->random[4], i, n/2-i-1-algo_info->random[4], n/2 );
                } else {
                     gen1_1_swapchars( s1, i, n/2-i-2, n/2 );
+                    gen1_1_swapchars( s1+algo_info->random[3], i, n/2-i-2-algo_info->random[3], n/2 );
                     gen1_1_swapchars( s2, i, n/2-i-2, n/2 );
+                    gen1_1_swapchars( s1+algo_info->random[4], i, n/2-i-2-algo_info->random[4], n/2 );
                }
                gen1_1_swapchars( s1, i, algo_info->random[1]+i, n/2 );
                gen1_1_swapchars( s2, i, algo_info->random[2]+i, n/2 );
@@ -91,12 +95,12 @@ void gen1_1_shuffle     ( struct domino_password_algo *algo_info, char *data ) {
          }
          gen1_1_rotate( s1, algo_info->random[1], n/2 );
          gen1_1_rotate( s2, algo_info->random[2], n/2 );
-         gen1_1_rotate( data, algo_info->random[0], n );
-         gen1_1_rotate( s1, algo_info->random[3], n );
+         gen1_1_rotate( data, algo_info->random[0], n - algo_info->random[0] );
+         gen1_1_rotate( s1, algo_info->random[3], n - algo_info->random[3] );
          gen1_1_rotate( &s1[algo_info->random[3]], algo_info->random[4], n/2 );
-         if( pin % 3500 ){
+         if( algo_info->pin % 3500 == 0 ){
             strcpy( algo_info->seed, data );
-            gen1_1_rotate( algo_info->seed, 3, n );
+            gen1_1_rotate( algo_info->seed, 3, n - 3 );
          }
      }
 #ifdef DEBUG
