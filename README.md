@@ -1,7 +1,10 @@
-# SAKUA2
+# SAKUA2 Random String Generator
+
 ## SAKUA2 (Based on dominopassword)
 
 # Please Read how it works file.
+
+## Please use the sakua2random.c file for testing the applicaiton
 
 SAKUA
 -----
