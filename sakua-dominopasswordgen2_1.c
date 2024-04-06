@@ -64,7 +64,7 @@ void gen2_1_shuffle     ( struct domino_password_algo *algo_info, char *data ) {
 	     return;
      memcpy( data, algo_info->seed, DP_SEED_LEN);
      data[DP_SEED_LEN] = 0;
-     int k = 1;   
+     int k = 1;
 #ifdef DEBUG
      printf("DBUG: shuffle start : %s %d \n", data, strlen(data) );
      printf("DBUG: shuffle start : %d \n", algo_info->pin );
@@ -73,28 +73,36 @@ void gen2_1_shuffle     ( struct domino_password_algo *algo_info, char *data ) {
      printf("DBUG: shuffle start : %d \n", algo_info->random[2] );
      printf("DBUG: shuffle start : %s \n", data );
 #endif
-     for ( int j = 0; j < algo_info->pin; j++ ) {    
-         char* s1 = &data[0];  
+     for ( int j = 0; j < algo_info->pin; j++ ) {
+         char* s1 = &data[0];
          char* s2 = &data[n/2];
-         
+
          for ( int i = 0; i < n/4; i++ ){
                if( k % 2  == 0 ){
-                    gen2_1_swapchars( s1, i, n/2-i-1, n/2 ); 
-                    gen2_1_swapchars( s2, i, n/2-i-1, n/2 ); 
-               } else { 
-                    gen2_1_swapchars( s1, i, n/2-i-2, n/2 ); 
-                    gen2_1_swapchars( s2, i, n/2-i-2, n/2 ); 
-               } 
-               gen2_1_swapchars( s1, i, algo_info->random[1]+i, n/2 ); 
-               gen2_1_swapchars( s2, i, algo_info->random[2]+i, n/2 ); 
+                    gen2_1_swapchars( s1, i, n/2-i-1, n/2 );
+                    gen2_1_swapchars( s1+algo_info->random[3], i, n/2-i-1-algo_info->random[2], n/2 );
+                    gen2_1_swapchars( s2, i, n/2-i-1, n/2 );
+                    gen2_1_swapchars( s1+algo_info->random[4], i, n/2-i-1-algo_info->random[4], n/2 );
+               } else {
+                    gen2_1_swapchars( s1, i, n/2-i-2, n/2 );
+                    gen2_1_swapchars( s1+algo_info->random[3], i, n/2-i-2-algo_info->random[3], n/2 );
+                    gen2_1_swapchars( s2, i, n/2-i-2, n/2 );
+                    gen2_1_swapchars( s1+algo_info->random[4], i, n/2-i-2-algo_info->random[4], n/2 );
+               }
+               gen2_1_swapchars( s1, i, algo_info->random[1]+i, n/2 );
+               gen2_1_swapchars( s2, i, algo_info->random[2]+i, n/2 );
                k++;
-         }  
+         }
          gen2_1_rotate( s1, algo_info->random[1], n/2 );
          gen2_1_rotate( s2, algo_info->random[2], n/2 );
-         gen2_1_rotate( data, algo_info->random[0], n );  
-         gen2_1_rotate( s1, algo_info->random[3], n/2 );
-         gen2_1_rotate( s2, algo_info->random[4], n/2 );
-     } 
+         gen2_1_rotate( data, algo_info->random[0], n - algo_info->random[0] );
+         gen2_1_rotate( s1, algo_info->random[3], n - algo_info->random[3] );
+         gen2_1_rotate( &s1[algo_info->random[3]], algo_info->random[4], n/2 );
+         if( algo_info->pin % 3500 == 0 ){
+            strcpy( algo_info->seed, data );
+            gen2_1_rotate( algo_info->seed, 3, n - 3 );
+         }
+     }
 #ifdef DEBUG
      printf("DBUG: shuffle end : %s %d \n", data, strlen(data) );
      printf("DBUG: shuffle end : %d \n", algo_info->pin );
