@@ -3,6 +3,9 @@
 # Please Read how it works file.
 
 ## Please use the sakua2random.c file for testing the application
+make   
+make -f Makefile.sakua2random   
+
 
 SAKUA
 -----
