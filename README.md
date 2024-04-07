@@ -12,6 +12,13 @@ SAKUA
 Shared Access Key User Authentication
 SAKUA is similar to SAKA but the User first registers online using SSL/TLS and then the encryption layer is provided by SAKUA.
 
+Please Also See, Original repository:
+=====================================
+https://github.com/anpnrynn/SAKUA2   
+SAKUA2 original algo will remain there without any modifications.   
+dominopassword repository was removed by me.   
+
+
 DominoPassword C implementation for:
 ------------------------------------
 1. GEN1   - Last update in 2023
