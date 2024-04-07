@@ -12,6 +12,7 @@ void gen1_1_set_random  ( struct domino_password_algo *algo_info, int *random );
 void gen1_1_rotate      ( char *data, int count, int n );
 void gen1_1_swapchars   ( char *data, int i, int j, int n );
 void gen1_1_shuffle     ( struct domino_password_algo *algo_info, char *data );
+void gen1_1_fastforward ( struct domino_password_algo *algo_info, char *data );
 
 
 //extern struct domino_password_algo gen1_1_algo;

@@ -16,7 +16,7 @@
 int main(int argc, char *argv) {
 
     int years = 4;
-    int pin = 2035;
+    int pin = 2031;
 
 	struct domino_password *dp = 0;
 	char *s = 0, *k =0;
@@ -26,7 +26,7 @@ int main(int argc, char *argv) {
 
 	dp = 0; s = 0; k = 0;
 	dp = domino_password_new();
-	dp->function_algo_setup( dp, 3 );
+	dp->function_algo_setup( dp, 1 );
 	dp->algo->function_set_pin( dp->algo, pin );
 	dp->algo->incremental = 0;
 	fprintf( stderr, "Generating for %d years, with pin = %d \n", years, pin );
@@ -38,7 +38,7 @@ int main(int argc, char *argv) {
 	fprintf( stderr, "Generating for %d years, with pin = %d \n", years, pin );
 	fflush(stderr);
 
-	FILE *fp = fopen("readable_random-11-2-5.txt", "w+");
+	FILE *fp = fopen("readable_random-11-1-05.txt", "w+");
 	#define MULTIPLES 31622400 //3600x24X366
 	int i = 0;
 	for( i = 0; i < MULTIPLES * years ; i++ ){
