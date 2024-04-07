@@ -10,7 +10,7 @@
 
 int main() {
 
-	struct key_create *kc = sakua_key_create_new ( 3 );
+	struct key_create *kc = sakua_key_create_new ( 0 );
 	//sakua_key_create_setup( kc );
 	sakua_key_create_setup_debug( kc );
 	sakua_set_preseed (kc, 0);
@@ -39,7 +39,7 @@ int main() {
 	sakua_key_create_delete( kc );
 
 
-	kc = sakua_key_create_new ( 3 );
+	kc = sakua_key_create_new ( 0 );
 	set_key_create_tv_pair (kc, KC_INFO_SOCIAL1, "1ello1" );
 	set_key_create_tv_pair (kc, KC_INFO_SOCIAL2, "2ello1" );
 	set_key_create_tv_pair (kc, KC_INFO_SOCIAL3, "3ello1" );

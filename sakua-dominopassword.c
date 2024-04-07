@@ -40,6 +40,8 @@ void  dp_algo_setup      ( struct domino_password *dp, int gen ){
 void  dp_set_gen_seed    ( struct domino_password *dp,  char *seed ){
 	if( seed ){
 		strncpy(dp->gen_seed, seed, DP_SEED_LEN );
+	} else {
+		seed == 0;
 	}
 	dp->algo->function_set_get_seed( dp->algo, &seed );
 }

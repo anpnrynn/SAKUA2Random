@@ -12,7 +12,7 @@ void gen1_algo_init   ( struct domino_password_algo *algo_info ) {
 
 void gen1_set_get_seed    ( struct domino_password_algo *algo_info, char **seed  ) {
 	static char initdata[128] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz`~!@#$%^&*()_+-={}|[]\\:\";'<>?,./^&*()_+-={}|[]";
-	if( *seed == 0 ) {
+	if( *seed == 0 || *seed[0] == 0 ) {
 	    *seed = initdata;
 	    algo_info->seed = initdata;
 	} else {
@@ -98,6 +98,9 @@ void gen1_shuffle     ( struct domino_password_algo *algo_info, char *data ) {
      return;
 }
 
+void gen1_fastforward     ( struct domino_password_algo *algo_info, char *data ){
+}
+
 
 struct domino_password_algo _gen1_algo = {
 	0,
@@ -112,6 +115,9 @@ struct domino_password_algo _gen1_algo = {
 	gen1_rotate,
 	gen1_swapchars,
 	gen1_shuffle,
+	gen1_fastforward,
+	0,
+	0
 };
 
 struct domino_password_algo *gen1_algo = &_gen1_algo;

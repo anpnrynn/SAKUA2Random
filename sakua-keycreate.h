@@ -103,8 +103,8 @@ struct key_create {
 	int  seedpin;
 	char preseed[128];
 	int  pin;
-        char seed   [128];
-        char secure [128];
+    char seed   [128];
+    char secure [128];
 	int  n_sequence;
 	int  sequence [108];
 	void *user_data;

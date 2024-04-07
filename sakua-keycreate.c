@@ -399,6 +399,10 @@ struct key_create *sakua_key_create_new(int algorithm){
         	kc->dp_seed->function_algo_setup( kc->dp_seed, kc->algorithm );
         	kc->dp_key = domino_password_new();
         	kc->dp_key->function_algo_setup( kc->dp_key, kc->algorithm );
+		if( kc->algorithm == 1 || kc->algorithm == 3 ){
+			kc->dp_seed->algo->incremental = 1;
+			kc->dp_key->algo->incremental = 1;
+		}
 	}
 	return kc;
 }
@@ -451,10 +455,15 @@ void   sakua_set_seedpin ( struct key_create * kc, int seedpin ){
 
 char*  sakua_get_seed    ( struct key_create * kc ){
 	kc->dp_seed->algo->function_set_pin( kc->dp_seed->algo, kc->seedpin );
-        kc->dp_seed->function_set_gen_seed( kc->dp_seed, kc->preseed );
-        kc->dp_seed->function_gen_shuffled( kc->dp_seed );
-        strcpy( kc->seed , kc->dp_seed->function_get_shuffled(kc->dp_seed) );
-        printf( " Seed = %s \n", kc->seed );
+	kc->dp_seed->function_set_gen_seed( kc->dp_seed, kc->preseed );
+	if( kc->dp_seed->algo->incremental == 1 ){
+		kc->dp_seed->algo->function_fastforward( kc->dp_seed->algo, kc->dp_seed->shuffled );
+		kc->dp_seed->algo->incremental = 1;
+		kc->dp_seed->algo->function_set_pin( kc->dp_seed->algo, kc->seedpin );
+	}
+	kc->dp_seed->function_gen_shuffled( kc->dp_seed );
+	strcpy( kc->seed , kc->dp_seed->function_get_shuffled(kc->dp_seed) );
+	printf( " Preseed=%s, Seed = %s \n", kc->preseed, kc->seed );
 	return kc->seed;
 }
 
@@ -470,10 +479,15 @@ void   sakua_set_seed    ( struct key_create * kc, char *seed ){
 
 char*  sakua_get_secure  ( struct key_create * kc ){
 	kc->dp_key->algo->function_set_pin( kc->dp_key->algo, kc->pin );
-        kc->dp_key->function_set_gen_seed( kc->dp_key, kc->seed );
-        kc->dp_key->function_gen_shuffled( kc->dp_key );
-        strcpy( kc->secure , kc->dp_key->function_get_shuffled(kc->dp_key) );
-        printf( " Secure = %s \n", kc->secure );
+	kc->dp_key->function_set_gen_seed( kc->dp_key, kc->seed );
+	if( kc->dp_key->algo->incremental == 1 ){
+		kc->dp_key->algo->function_fastforward( kc->dp_key->algo, kc->dp_key->shuffled );
+		kc->dp_key->algo->incremental = 1;
+		kc->dp_key->algo->function_set_pin( kc->dp_key->algo, kc->pin );
+	}
+	kc->dp_key->function_gen_shuffled( kc->dp_key );
+	strcpy( kc->secure , kc->dp_key->function_get_shuffled(kc->dp_key) );
+	printf( " Preseed=%s, Seed = %s \n", kc->preseed, kc->seed );
 	return kc->secure;
 }
 
