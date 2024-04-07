@@ -25,6 +25,7 @@ void  dp_algo_setup      ( struct domino_password *dp, int gen ){
 			break;
 	}	
 	dp->algo->function_algo_init(dp->algo);
+	dp->algo->shuffled = dp->shuffled;
 	char *tmpseed = 0;
 	dp_set_gen_seed( dp, tmpseed );
 #ifdef DEBUG

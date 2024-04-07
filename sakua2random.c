@@ -16,48 +16,38 @@
 int main(int argc, char *argv) {
 
     int years = 4;
-    int pin = 2024;
-    //int pin = 200;
+    int pin = 2035;
 
 	struct domino_password *dp = 0;
 	char *s = 0, *k =0;
 
-	fprintf( stderr, "Generating for %d years, with pin = %d ", years, pin );
+	fprintf( stderr, "Generating for %d years, with pin = %d \n", years, pin );
 	fflush(stderr);
 
 	dp = 0; s = 0; k = 0;
 	dp = domino_password_new();
-	dp->function_algo_setup( dp, 1 );
+	dp->function_algo_setup( dp, 3 );
+	dp->algo->function_set_pin( dp->algo, pin );
+	dp->algo->incremental = 0;
+	fprintf( stderr, "Generating for %d years, with pin = %d \n", years, pin );
+	fflush(stderr);
+	dp->function_set_gen_seed( dp, 0 );
+	dp->algo->function_fastforward( dp->algo, dp->shuffled );
+	dp->algo->incremental = 1;
 
+	fprintf( stderr, "Generating for %d years, with pin = %d \n", years, pin );
+	fflush(stderr);
 
-
-	FILE *fp = fopen("readable_random-11-1.txt", "w+");
-
-
-	//fprintf( stderr, "Generating for %d years, with pin = %d ", years, pin );
+	FILE *fp = fopen("readable_random-11-2-5.txt", "w+");
 	#define MULTIPLES 31622400 //3600x24X366
 	int i = 0;
-	char randomtmp [2048];
-	int j = 1;
-	dp->function_set_gen_seed( dp, 0 );
-    dp->algo->function_set_pin( dp->algo, pin );
-    strcpy( dp->algo->seed, "4Pto+9k}V[{Z'>{v$(&@~y!\/f|?3mz|N1ua,n^gc#je}\"qhlW=F*2w5R+d-)^XGp8]JT`]0(ixsUY7__;LIA&)bSH-EC6=K*.BQO%rDM:<");
-    strcpy( dp->gen_seed, "4Pto+9k}V[{Z'>{v$(&@~y!\/f|?3mz|N1ua,n^gc#je}\"qhlW=F*2w5R+d-)^XGp8]JT`]0(ixsUY7__;LIA&)bSH-EC6=K*.BQO%rDM:<");
-    //gen1_1_algo->pin = 200;
-    //gen1_1_shuffle(gen1_1_algo, dp->shuffled );
-    //dp->function_gen_shuffled( dp );
-    //strcpy( dp->gen_seed, dp->shuffled);
-    //strcpy( dp->algo->seed, dp->shuffled);
-    pin = 2023;
 	for( i = 0; i < MULTIPLES * years ; i++ ){
-
-        //fprintf(stderr, "%d", i);
-        fflush(stderr);
-        dp->algo->function_set_pin( dp->algo, pin++ );
-        dp->function_gen_shuffled( dp );
-        fprintf( fp, "%s\n", dp->shuffled );
-        fprintf( stderr, "%s\n", dp->shuffled );
-        fflush(fp);
+           fflush(stderr);
+           dp->algo->function_set_pin( dp->algo, ++pin );
+           dp->function_gen_shuffled( dp );
+           fprintf( fp, "%s\n", dp->shuffled );
+           fprintf( stderr, "INFO: Pin = %d \n", pin );
+           fflush(fp);
 	}
 
 	fclose( fp );

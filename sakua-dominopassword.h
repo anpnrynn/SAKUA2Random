@@ -35,6 +35,7 @@ typedef void (*set_random)    ( struct domino_password_algo *algo_info, int *ran
 typedef void (*rotate)        ( char *data, int count, int n );
 typedef void (*swapchars)     ( char *data, int i, int j, int n );
 typedef void (*shuffle)       ( struct domino_password_algo *algo_info, char *data );
+typedef void (*fastforward)   ( struct domino_password_algo *algo_info, char *data );
 
 
 struct domino_password_algo {
@@ -52,6 +53,9 @@ struct domino_password_algo {
 	rotate       function_rotate;
 	swapchars    function_swapchars;
 	shuffle      function_shuffle;
+	fastforward  function_fastforward;
+	int  incremental;
+	char *shuffled;
 };
 
 

@@ -5,7 +5,7 @@ build:sakua-dominopasswordgen1.o sakua-dominopasswordgen1_1.o sakua-dominopasswo
 
 buildshared:libsakua-dominopassword.so libsakua-keycreate.so
 
-FLAGS=-I./ -O2 -fPIC
+FLAGS=-I./ -g3 -fPIC
 #LDFLAGS=-L./ -lsakua-dominopassword 
 
 cleanbuild: clean build buildshared tests
@@ -29,13 +29,13 @@ sakua-dominopassword.o:sakua-dominopassword.c sakua-dominopassword.h
 	gcc sakua-dominopassword.c -c -o sakua-dominopassword.o $(FLAGS)
 	
 libsakua-dominopassword.so:sakua-dominopasswordgen1.o sakua-dominopasswordgen1_1.o sakua-dominopasswordgen2.o sakua-dominopasswordgen2_1.o sakua-dominopassword.o
-	gcc -shared sakua-dominopasswordgen1.o sakua-dominopasswordgen1_1.o sakua-dominopasswordgen2.o sakua-dominopasswordgen2_1.o sakua-dominopassword.o -o libsakua-dominopassword.so 
+	gcc -shared sakua-dominopasswordgen1.o sakua-dominopasswordgen1_1.o sakua-dominopasswordgen2.o sakua-dominopasswordgen2_1.o sakua-dominopassword.o -o libsakua-dominopassword.so  -g3 -fPIC 
 
 sakua-keycreate.o:sakua-keycreate.c sakua-keycreate.h  
 	gcc sakua-keycreate.c -c -o sakua-keycreate.o $(FLAGS)
 	
 libsakua-keycreate.so:libsakua-dominopassword.so
-	gcc -shared sakua-keycreate.o -o libsakua-keycreate.so libsakua-dominopassword.so $(LDFLAGS)
+	gcc -shared sakua-keycreate.o -o libsakua-keycreate.so libsakua-dominopassword.so $(LDFLAGS) -g3 -fPIC
 
 tests:test testkeygen testkeycreate
 

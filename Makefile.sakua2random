@@ -3,7 +3,7 @@ all:build
 
 build:sakua2random
 
-FLAGS=-I../ -I./ -O2 -fPIC
+FLAGS=-I../ -I./ -g3 -fPIC
 
 cleanbuild: clean build tests
 
@@ -11,4 +11,4 @@ clean:
 	rm -f *.so *.o test testkeygen testkeycreate
 
 sakua2random:sakua2random.c
-	gcc sakua2random.c -o sakua2random_make  libsakua-dominopassword.so libsakua-keycreate.so $(FLAGS)
+	gcc sakua2random.c -o sakua2random_make -g3 -fPIC libsakua-dominopassword.so libsakua-keycreate.so $(FLAGS)

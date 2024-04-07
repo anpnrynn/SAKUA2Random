@@ -3,10 +3,13 @@
 
 
 
+static unsigned int shiftkeys[40] = { 3500, 301390, 0 };
+
 void gen2_1_algo_init   ( struct domino_password_algo *algo_info ) {
 	static int random[6] = { 23, 13, 17,  7, 11 };
 	algo_info->pin = 2023;
 	algo_info->random = random;
+	algo_info->incremental = 0;
 }
 
 
@@ -15,10 +18,21 @@ void gen2_1_set_get_seed    ( struct domino_password_algo *algo_info, char **see
 	if( *seed == 0 ) {
 	    *seed = initdata;
 	    algo_info->seed = initdata;
+		if( algo_info->incremental == 1 ){
+			memcpy( algo_info->shuffled, algo_info->seed, DP_SEED_LEN );
+			algo_info->shuffled[DP_SEED_LEN] = 0;
+		}
 	} else {
-	    memcpy( initdata, algo_info->seed, DP_SEED_LEN );
+	    memcpy( initdata, *seed, DP_SEED_LEN );
 	    initdata[DP_SEED_LEN] = 0;
+		algo_info->seed = initdata;
+		if( algo_info->incremental == 1 ){
+			memcpy( algo_info->shuffled, algo_info->seed, DP_SEED_LEN );
+			algo_info->shuffled[DP_SEED_LEN] = 0;
+		}
 	}
+	
+	
 }
 
 void gen2_1_set_pin     ( struct domino_password_algo *algo_info, int n ) {
@@ -57,13 +71,38 @@ void gen2_1_swapchars   ( char *data, int i, int j, int n ) {
 	data[j] = tmp;
 }
 
+int gen2_1_rotatevalue( int pin, unsigned int *shiftkeys ){
+	int i = 0;
+	static int rotatevalues [] = { 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 0 };
+	while( shiftkeys[i] != 0 ){
+		if( pin < shiftkeys[i] ) {
+			return 0;
+		} else {
+
+			if( pin % shiftkeys[i] == 0 ){
+				return rotatevalues[i];
+			}
+		}
+		i++;
+	}
+	return 0;
+}
 
 void gen2_1_shuffle     ( struct domino_password_algo *algo_info, char *data ) {
-     int n = strlen(algo_info->seed);
-     if( n == 0 )
+	int n = 108;
+     if( algo_info->incremental == 0 ){
+         n = strlen(algo_info->seed);
+         if( n == 0 )
 	     return;
-     memcpy( data, algo_info->seed, DP_SEED_LEN);
-     data[DP_SEED_LEN] = 0;
+         memcpy( data, algo_info->seed, DP_SEED_LEN);
+         data[DP_SEED_LEN] = 0;
+     } else {
+         //n = strlen(algo_info->shuffled);
+         //if( n == 0 )
+	     //return;
+         //memcpy( data, algo_info->shuffled, DP_SEED_LEN);
+         data[DP_SEED_LEN] = 0;
+     }
      int k = 1;
 #ifdef DEBUG
      printf("DBUG: shuffle start : %s %d \n", data, strlen(data) );
@@ -73,7 +112,12 @@ void gen2_1_shuffle     ( struct domino_password_algo *algo_info, char *data ) {
      printf("DBUG: shuffle start : %d \n", algo_info->random[2] );
      printf("DBUG: shuffle start : %s \n", data );
 #endif
-     for ( int j = 0; j < algo_info->pin; j++ ) {
+     
+     int j = 0;
+     if( algo_info->incremental == 1 ){
+	 j = algo_info->pin - 1;
+     }
+     for ( ;  j < algo_info->pin; j++ ) {
          char* s1 = &data[0];
          char* s2 = &data[n/2];
 
@@ -98,10 +142,14 @@ void gen2_1_shuffle     ( struct domino_password_algo *algo_info, char *data ) {
          gen2_1_rotate( data, algo_info->random[0], n - algo_info->random[0] );
          gen2_1_rotate( s1, algo_info->random[3], n - algo_info->random[3] );
          gen2_1_rotate( &s1[algo_info->random[3]], algo_info->random[4], n/2 );
-         if( algo_info->pin % 3500 == 0 ){
-            strcpy( algo_info->seed, data );
-            gen2_1_rotate( algo_info->seed, 3, n - 3 );
+	 
+	 int nrotate = 0;
+         if( ( nrotate = gen2_1_rotatevalue(  algo_info->pin, shiftkeys) ) != 0  ){
+         //if( algo_info->pin % 3500 == 0 ){
+            strcpy( algo_info->shuffled, data );
+            gen2_1_rotate( algo_info->shuffled, nrotate, n - nrotate );
          }
+	 //printf("INFO: nrotate = %d \n", nrotate );
      }
 #ifdef DEBUG
      printf("DBUG: shuffle end : %s %d \n", data, strlen(data) );
@@ -112,6 +160,13 @@ void gen2_1_shuffle     ( struct domino_password_algo *algo_info, char *data ) {
      printf("DBUG: shuffle end : %s \n", data );
 #endif
      return;
+}
+
+
+void gen2_1_fastforward     ( struct domino_password_algo *algo_info, char *data ){
+	algo_info->incremental = 0;
+	gen2_1_shuffle(algo_info, data );
+	algo_info->incremental = 1;
 }
 
 
@@ -127,7 +182,10 @@ struct domino_password_algo _gen2_1_algo = {
 	gen2_1_set_random,
 	gen2_1_rotate,
 	gen2_1_swapchars,
-	gen2_1_shuffle
+	gen2_1_shuffle,
+	gen2_1_fastforward,
+	0,
+	0
 };
 
 struct domino_password_algo *gen2_1_algo = &_gen2_1_algo;
