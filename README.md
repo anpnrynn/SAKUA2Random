@@ -15,9 +15,9 @@ SAKUA is similar to SAKA but the User first registers online using SSL/TLS and t
 DominoPassword C implementation for:
 ------------------------------------
 1. GEN1   - Last update in 2023
-2. GEN1_1 - Last update in 06-Apr-2024 - Reduction of conflicts
+2. GEN1_1 - Last update in 07-Apr-2024 - Reduction of conflicts (Heavily modified from original SAKUA2 algo) 
 3. GEN2   - Last update in Jan-2023 
-4. GEN2_1 - Last update in 06-Apr-2024
+4. GEN2_1 - Last update in 07-Apr-2024 - Reduction of conflicts (Heavily modified from original SAKUA2 algo) 
 
 TO DO:
 ------
