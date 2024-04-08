@@ -61,3 +61,8 @@ HwF.DgB7937;5s3f1d/=eko4qJ_2'*`,_54~iaSc/K$I;>R<T8xOzyvAt+rhp2n0l^j9=U?.Lm6>u^-'
 
 
 
+Password generation APK
+=======================
+## The APK / android application comes with no waranties, its for generating passwords for website / applications. The Initial purpose for which I wrote this application. It doesn't store the pattern / passwords only the website / applicaiton name and pin , you will have to remember the pattern. 
+
+## Uninstalling the app and reinstalling the app causes the saved pins to be deleted, use caution, use a backup.
