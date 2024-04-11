@@ -62,7 +62,46 @@ HwF.DgB7937;5s3f1d/=eko4qJ_2'*`,_54~iaSc/K$I;>R<T8xOzyvAt+rhp2n0l^j9=U?.Lm6>u^-'
 
 
 Password generation APK
-=======================
-## The APK / android application comes with no waranties, its for generating passwords for website / applications. The Initial purpose for which I wrote this application. It doesn't store the pattern / passwords only the website / applicaiton name and pin , you will have to remember the pattern. 
+=======================   
+The APK / android application comes with no waranties, its for generating passwords for website / applications. The Initial purpose for which I wrote this application. It doesn't store the pattern / passwords only the website / applicaiton name and pin , you will have to remember the pattern.    
+Uninstalling the app and reinstalling the app causes the saved pins to be deleted, use caution, use a backup.   
 
-## Uninstalling the app and reinstalling the app causes the saved pins to be deleted, use caution, use a backup.
+
+## Third Party Secure Key Communication
+=========================================
+
+There are three parties involved.
+• SAKUA2Random String generated site (The third party)
+• The End-User
+• The Website or Service Provider the End-User wishes to work with.
+
+The End-User installs an app from the random strings generator site, the app downloads 
+150Million+ 108 character long random strings file per device.    
+
+The SAKUA2Random Strings Site (keyserver) will create one 150Million+ 108 character 
+long random strings file, which is then shuffled around keeping the strings intact, but 
+the order changed to generate around 8 Billion+ combinations, which are used by 
+devices belonging to other users. Each user registers the (n)sites and usernames with 
+the random strings file.   
+
+The End-User accesses the site, Let’s say Gmail.com (server). Gmail.com uses one of 
+the daily strings (random search string) and sends the string along with a list of indices.
+These indices represent the offset from the end location of the random search string. 
+The values together in these indices represent the shared key. Which could optionally 
+be mixed in with the password to create an even more secure shared key.    
+
+The End-User’s app then uses these indices which it receives over TCP to calculate the 
+shared key, from its version of the random strings file, the indices are at an offset from 
+the end of the search string which is present in all 8 billion+ versions of the file, 
+including the one with Gmail.   
+
+The End-User then sends his username and uses the encrypted key to create a secure 
+connection.      
+
+At the server-end which is Gmail in this case, it contacts SAKUA2Random Strings Site
+(keyserver) sends the username and retrieves the shared key. Which is then used to 
+decrypt the data from the End-User and vice versa.
+The random strings file can be regenerated every week or so to improve the security of 
+the End-User / Server.   
+
+
