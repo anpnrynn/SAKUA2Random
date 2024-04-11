@@ -1,7 +1,7 @@
 #copyright Anoop Kumar Narayanan 2023 anoop.kumar.narayanan@gmail.com
 all:build
 
-build:sakua2random
+build:sakua2random searchline
 
 FLAGS=-I../ -I./ -g3 -fPIC
 
@@ -12,3 +12,7 @@ clean:
 
 sakua2random:sakua2random.c
 	gcc sakua2random.c -o sakua2random_make -g3 -fPIC libsakua-dominopassword.so libsakua-keycreate.so $(FLAGS)
+
+
+searchline:searchline.c
+	gcc searchline.c -o searchline -g3 -fPIC $(FLAGS)
