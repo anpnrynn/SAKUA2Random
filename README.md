@@ -68,12 +68,11 @@ Uninstalling the app and reinstalling the app causes the saved pins to be delete
 
 
 ## Third Party Secure Key Communication
-=========================================
 
-There are three parties involved.
-• SAKUA2Random String generated site (The third party)
-• The End-User
-• The Website or Service Provider the End-User wishes to work with.
+There are three parties involved.    
+• SAKUA2Random String generated site (The third party)   
+• The End-User   
+• The Website or Service Provider the End-User wishes to work with.   
 
 The End-User installs an app from the random strings generator site, the app downloads 
 150Million+ 108 character long random strings file per device.    
