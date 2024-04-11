@@ -1,8 +1,8 @@
 # SAKUA2 Random String Generator (Based on dominopassword)
 
-# Please Read how it works file.
+### Please Read how it works file.
 
-## Please use the sakua2random.c file for testing the application
+### Please use the sakua2random.c file for testing the application
 make   
 make -f Makefile.sakua2random   
 
@@ -67,7 +67,8 @@ The APK / android application comes with no waranties, its for generating passwo
 Uninstalling the app and reinstalling the app causes the saved pins to be deleted, use caution, use a backup.   
 
 
-## Third Party Secure Key Communication
+Third Party Secure Key Communication
+====================================
 
 There are three parties involved.    
 • SAKUA2Random String generated site (The third party)   
