@@ -23,8 +23,8 @@ int main(int argc, char *argv[]) {
 	int pin  = 0;
 	int algo = 0;
 
-	if( argc < 4 ){
-		printf( "Usage: %s <algo> <Start of pin> <Number of strings> \n", argv[0]);
+	if( argc < 5 ){
+		printf( "Usage: %s <algo> <Start of pin> <Number of strings> <filename>\n", argv[0]);
 		printf( "	Algo, 0 - 1_0, 1 - 1_1, 2 - 2_0, 3 - 2_1 \n");
 		return 0;
 	} else {
@@ -46,7 +46,7 @@ int main(int argc, char *argv[]) {
 	dp->algo->incremental = 1;
 	fflush(stderr);
 
-	FILE *fp = fopen("readable_random-1_1-01.txt", "w+");
+	FILE *fp = fopen(argv[4], "w+");
 	int i = 0;
 	for( i = 0; i < n; i++ ){
            fflush(stderr);
