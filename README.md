@@ -20,7 +20,7 @@ Please Also See, Original repository:
 =====================================
 https://github.com/anpnrynn/SAKUA2   
 SAKUA2 original algo will remain there without any modifications.   
-dominopassword repository was removed by me.   
+https://github.com/anpnrynn/dominopassword repository was removed by me as it was conflicting with an IBM technology.  
 
 
 
