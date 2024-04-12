@@ -29,14 +29,16 @@ DominoPassword C implementation for:
 3. GEN2   - Last update in Jan-2023 
 4. GEN2_1 - Last update in 07-Apr-2024 - Reduction of conflicts (Heavily modified from original SAKUA2 algo) 
 
+
+    
 TO DO:
 ------
 Actual SAKUA and SAKA implemetation. SAKUA and SAKA are a replacement for public key alogrithm.
 
-
-Random Number Generation and Validation programs
-================================================
-
+   
+   
+Random Number Generation and Validation programs   
+================================================    
 sakua2random   
 =============   
 Usage: ./sakua2random_make <algo> <Start of pin> <Number of strings> <filename>   
@@ -47,19 +49,19 @@ Usage: ./sakua2random_make <algo> <Start of pin> <Number of strings> <filename>
 
 These two files commands will generate different set of random files. Use either odd or even number, every subsequent odd and even number will generate same similar set minus the first random number.   
 Ex: Use pins 1, 3, 5, 7, 9 or 2. 4. 6. 8. 10 ... etc   
-
-searchline
-==========
-Usage : ./searchline <filename> <searchlineindex> <stringoffset> <stringlength> <substringsearch>
-./searchline random1.txt 34 0 16 1
-
-
+   
+searchline    
+==========    
+Usage : ./searchline <filename> <searchlineindex> <stringoffset> <stringlength> <substringsearch>   
+./searchline random1.txt 34 0 16 1   
+   
+   
 Password generation APK
 =======================   
 The APK / android application comes with no waranties, its for generating passwords for website / applications. The Initial purpose for which I wrote this application. It doesn't store the pattern / passwords only the website / applicaiton name and pin , you will have to remember the pattern.    
 Uninstalling the app and reinstalling the app causes the saved pins to be deleted, use caution, use a backup.   
 
-
+   
 Third Party Secure Key Communication
 ====================================
 
