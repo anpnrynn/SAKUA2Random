@@ -41,7 +41,7 @@ Random Number Generation and Validation programs
 ================================================    
 sakua2random   
 =============   
-Usage: ./sakua2random_make <algo> <Start of pin> <Number of strings> <filename>   
+`Usage: ./sakua2random_make <algo> <Start of pin> <Number of strings> <filename>`     
 	Algo, 0 - 1_0, 1 - 1_1, 2 - 2_0, 3 - 2_1    
 
  ./sakua2random_make 1 1 10000000  random1.txt   
@@ -52,7 +52,7 @@ Ex: Use pins 1, 3, 5, 7, 9 or 2. 4. 6. 8. 10 ... etc
    
 searchline    
 ==========    
-Usage : ./searchline <filename> <searchlineindex> <stringoffset> <stringlength> <substringsearch>   
+`Usage : ./searchline <filename> <searchlineindex> <stringoffset> <stringlength> <substringsearch>`    
 ./searchline random1.txt 34 0 16 1   
    
    
