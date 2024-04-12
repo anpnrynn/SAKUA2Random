@@ -2,9 +2,11 @@
 
 ### Please Read how it works file. (Original working theory of SAKUA2, a secure public key alternative with MITM prevention)
 ### Please use the sakua2random.c file for testing random number generation and testing the library.
+
+
 `make`   
 `make -f Makefile.sakua2random`   
-`export LD_LIBRARY_PATH=\`pwd\``  
+`export LD_LIBRARY_PATH=./`  
 
 
 SAKUA
