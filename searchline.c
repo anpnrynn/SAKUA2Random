@@ -50,7 +50,7 @@ for(;;) {
     } else {
 		int j = 0;
 		while( j < 108-length ) {
-    		if( strncmp ( &line[offset+j] , &fline[offset], length ) == 0 ){
+    		if( strncmp ( &line[j] , &fline[offset], length ) == 0 ){
 	    		printf(" Matching string found at line : %d , %d\n", lineNumber, offset+j);
 				//fclose(f);
 				//return 0;
@@ -87,7 +87,7 @@ for(;n<readline;) {
     } else {
 		int j = 0;
 		while( j < 108-length ) {
-    		if( strncmp ( &line[offset+j] , &fline[offset], length ) == 0 ){
+    		if( strncmp ( &line[j] , &fline[offset], length ) == 0 ){
 	    		printf(" Matching string found at line : %d , %d\n", lineNumber, offset+j);
 				//fclose(f);
 				//return 0;
