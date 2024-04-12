@@ -104,3 +104,11 @@ The random strings file can be regenerated every week or so to improve the secur
 the End-User / Server.   
 
 
+HISTORY
+=======
+I researched, designed and wrote this from scratch. Initially I wrote the DominoPasswordGen2.html from scratch for generating password and storing minimal information on an electronic device, only pins, and not patterns or passwords. The idea was to remember pins and a few patterns to generate different passwords for several websites. This was done because my account was constantly being hacked using several means including but not limited to MITM.   
+
+
+DISCLAIMER
+==========
+If anyone claims otherwise, and say they have done it, they are either lying or cheating. If the person claiming this is affiliated with an University, you might need to suspend the persom from the University.  
