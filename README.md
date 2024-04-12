@@ -1,10 +1,10 @@
 # SAKUA2 Random String Generator (Based on dominopassword)
 
-### Please Read how it works file.
-### Please use the sakua2random.c file for testing the application
-make   
-make -f Makefile.sakua2random   
-export LD_LIBRARY_PATH=`pwd`  
+### Please Read how it works file. (Original working theory of SAKUA2, a secure public key alternative with MITM prevention)
+### Please use the sakua2random.c file for testing random number generation and testing the library.
+`make`   
+`make -f Makefile.sakua2random`   
+`export LD_LIBRARY_PATH=\`pwd\``  
 
 
 SAKUA
