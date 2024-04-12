@@ -10,6 +10,7 @@ int main(int argc , char *argv[]) {
 
 if( argc < 6 ) {
 	printf(" Usage : %s <filename> <searchlineindex> <stringoffset> <stringlength> <substringsearch>\n", argv[0] );
+	return 0;
 }
 
 FILE *f;
