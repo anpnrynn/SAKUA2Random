@@ -20,7 +20,7 @@ Please Also See, Original repository:
 =====================================
 https://github.com/anpnrynn/SAKUA2   
 SAKUA2 original algo will remain there without any modifications.   
-https://github.com/anpnrynn/dominopassword repository was removed by me as it was conflicting with an IBM technology.  
+https://github.com/anpnrynn/dominopassword repository was removed by me as it was conflicting with an IBM technology name.  
 
 
 
@@ -47,10 +47,12 @@ sakua2random
 	Algo, 0 - 1_0, 1 - 1_1, 2 - 2_0, 3 - 2_1    
 
  ./sakua2random_make 1 1 10000000  random1.txt   
- ./sakua2random_make 1 14 10000000 random14.txt    
+ ./sakua2random_make 1 14 10000000 random14.txt   
 
-These two files commands will generate different set of random files. Use either odd or even number, every subsequent odd and even number will generate same similar set minus the first random number.   
+These two commands will generate different set of random files. Use either odd or even number, every subsequent odd and even number will generate same similar set minus the first random number.   
 Ex: Use pins 1, 3, 5, 7, 9 or 2. 4. 6. 8. 10 ... etc   
+
+As of now tested upto 800 million random strings with a single pin, seems to generate unique random strings.   
    
 searchline    
 ==========    
