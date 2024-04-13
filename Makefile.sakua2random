@@ -1,7 +1,7 @@
 #copyright Anoop Kumar Narayanan 2023 anoop.kumar.narayanan@gmail.com
 all:build
 
-build:sakua2random searchline
+build:sakua2random searchline searchlinebuffered
 
 FLAGS=-I../ -I./ -g3 -fPIC
 
@@ -16,3 +16,6 @@ sakua2random:sakua2random.c
 
 searchline:searchline.c
 	gcc searchline.c -o searchline -g3 -fPIC $(FLAGS)
+
+searchlinebuffered:searchlinebuffered.c
+	gcc searchlinebuffered.c -o searchlinebuffered -g3 -fPIC $(FLAGS)
