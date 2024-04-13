@@ -66,6 +66,8 @@ The APK / android application comes with no waranties, its for generating passwo
 Uninstalling the app and reinstalling the app causes the saved pins to be deleted, use caution, use a backup.   
 
 Use dominopassword.apk or LowRes_dominopassword.apk(low res, FHD phones).    
+DominoPassword algorithm uses GEN2 (Password gen algo)   
+SAKUA2 is supposed to use GEN2_1 or GEN1_1 (Crypto string gen algo)   
 
    
 Third Party Secure Key Communication
