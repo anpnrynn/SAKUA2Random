@@ -1,5 +1,8 @@
 # SAKUA2 Random String Generator (Based on dominopassword)
 
+Updated LowRes_DominoPassword.apk today (19/04/2024)
+
+
 ### Please Read how it works file. (Original working theory of SAKUA2, a secure public key alternative with MITM prevention)
 ### Please use the sakua2random.c file for testing random number generation and testing the library.
 
