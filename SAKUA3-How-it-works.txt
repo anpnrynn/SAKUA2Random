@@ -1,0 +1,29 @@
+SAKUA3: How it works.
+
+The website you try to connect would have given you an app / mobile app 
+which has a dictionary of words, there server maintains the same set of
+dictionaries and a very very large number of it. 
+
+The user trys to connect.
+
+The app is used to select some values from the dictionary, as prompted by
+the website.
+
+The browser sends an encrypted message.
+
+The server is connected to another which will have to now guess the 
+encryption key based on the encrypted data, real time crypt-analysis 
+by brute force is done for the security reasons to prevent MITM attacks. 
+The number of dictionaries stored by the server is around some 500000000, 
+which makes is nearly impossible for an MITM attacker to decrypt. Also 
+every app that the each user downloads, has a different list.
+
+After locating the correct dictionary and creating the encryption key at
+the server end, the server responds to the initial message sent by the browser.
+
+Complexities:
+Space    - 500000000 * 2MB dictionary size, is very huge
+Info     - MITM would have to have the complete set.
+Time     - It will take a very large computing horse power to figure which
+        dictionary to use.
+Uncommon - Every company can create its very own dictionary set.
