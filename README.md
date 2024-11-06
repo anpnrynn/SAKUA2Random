@@ -83,7 +83,8 @@ Steps:
  • Keep either the pin or password same, and repeat process for other websites.     
 
 ![Domino Password Generation Image ](https://github.com/anpnrynn/SAKUA2Random/blob/main/DominoPassword.png) 
-
+ 
+![Domino Password Generation Image ](https://github.com/anpnrynn/SAKUA2Random/blob/main/DominoPassword-2.png)  
    
 Third Party Secure Key Communication
 ====================================
