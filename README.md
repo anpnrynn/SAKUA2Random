@@ -75,6 +75,13 @@ SAKUA2 is supposed to use GEN2_1 or GEN1_1 (Crypto string gen algo)
 
 Example: 
 
+Steps:
+ • Set the Pin     
+ • Press Generate     
+ • Create three patterns (uses back and next as required)     
+ • You are left with a secure password for a website.     
+ • Keep either the pin or password same, and repeat process for other websites.     
+
 ![Domino Password Generation Image ](https://github.com/anpnrynn/SAKUA2Random/blob/main/DominoPassword.png) 
 
    
