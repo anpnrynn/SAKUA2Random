@@ -85,6 +85,14 @@ Steps:
 ![Domino Password Generation Image ](https://github.com/anpnrynn/SAKUA2Random/blob/main/DominoPassword.png) 
  
 ![Domino Password Generation Image ](https://github.com/anpnrynn/SAKUA2Random/blob/main/DominoPassword-2.png)  
+
+ You can download the html or use the apk just for testing out Domino Password( not to be confused with IBM product).    
+
+ It makes use of a simple algo to create crypto secure 108char long string, which is used in DominoPassword to generate passwords based on pin and pattern.    
+
+ 36*3 = 108    
+Each of the pattern matrix is 6x6 matrix.    
+ And the pattern looks like a domino hence the name.    
    
 Third Party Secure Key Communication
 ====================================
