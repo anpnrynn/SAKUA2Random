@@ -131,6 +131,11 @@ decrypt the data from the End-User and vice versa.
 The random strings file can be regenerated every week or so to improve the security of 
 the End-User / Server.   
 
+Public Key Method
+=================
+Create a domino password using pin and pattern, then try to locate another pin and pattern such that the first level of SHA256 or SHA512 yield the same message digest. So, now, one of the key can be private and the other can be public. The algorithm can be different but i am pretty sure that this method can be used to find public private key pairs.
+
+Please note locating such a key is extremely hard. Known pairs of Messages should be avoided.
 
 HISTORY
 =======
