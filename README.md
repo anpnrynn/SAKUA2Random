@@ -135,6 +135,10 @@ Public Key Method
 =================
 Create a domino password using pin and pattern, then try to locate another pin and pattern such that the first level of SHA256 or SHA512 yield the same message digest. So, now, one of the key can be private and the other can be public. The algorithm can be different but i am pretty sure that this method can be used to find public private key pairs.
 
+Each of the public/private key are 2 pins and 1 pattern. 
+
+There are 2 follow up algorithms which is non reversible that is required to do the actual encryption and decryption, such that what is encrypted by public key can only be decrypted by private key. (Work in progress).
+
 Please note locating such a key is extremely hard. Known pairs of Messages should be avoided.
 
 HISTORY
