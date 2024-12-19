@@ -55,7 +55,10 @@ sakua2random
 These two commands will generate different set of random files. Use either odd or even number, every subsequent odd and even number will generate same similar set minus the first random number.   
 Ex: Use pins 1, 3, 5, 7, 9 or 2. 4. 6. 8. 10 ... etc   
 
-As of now tested upto 800 million random strings with a single pin, seems to generate unique random strings.   
+As of now tested upto 1 billion random strings with a single pin, seems to generate unique random strings.   
+The file size reaches about 100GB. This was the command.    
+./sakua2random_make.exe 3 5 1000000000 randomstrings.txt   
+
    
 searchline    
 ==========    
