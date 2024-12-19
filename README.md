@@ -19,6 +19,10 @@ SAKUA is similar to SAKA but the User first registers online using SSL/TLS and t
 ![SAKUA how it works ](https://github.com/anpnrynn/SAKUA2Random/blob/main/SAKUA2.png) 
 
 
+![SAKUA Questions the user is prompted with ](https://github.com/anpnrynn/SAKUA2Random/blob/main/SAKUA2-Questions.png)
+      
+
+
 Please Also See, Original repository:
 =====================================
 https://github.com/anpnrynn/SAKUA2   
