@@ -141,6 +141,8 @@ There are 2 follow up algorithms which is non reversible that is required to do 
 
 Please note locating such a key is extremely hard. Known pairs of Messages should be avoided.
 
+Another approach could be number co-relation method. Co-relate two numbers such that the algorithms are different. 
+
 HISTORY
 =======
 I researched, designed and wrote this from scratch. Initially I wrote the DominoPasswordGen2.html from scratch for generating password and storing minimal information on an electronic device, only pins, and not patterns or passwords. The idea was to remember pins and a few patterns to generate different passwords for several websites. This was done because my account was constantly being hacked using several means including but not limited to MITM.   
