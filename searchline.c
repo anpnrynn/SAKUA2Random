@@ -56,14 +56,24 @@ for(;;) {
     } else if ( first ==  1 ) {
 		int j = 0;
 		while( j < 108-length ) {
-    		if( strncmp ( &line[j] , &fline[offset], length ) == 0 ){
-	    		printf(" Matching string found at line : %d , %d\n", lineNumber, offset+j);
+    			if( strncmp ( &line[j] , &fline[offset], length ) == 0 ){
+	    			printf(" Matching string found at line : %d , %d\n", lineNumber, offset+j);
 				printf(" Matching string = %s \n", line );
 				//fclose(f);
 				//return 0;
-    		} 
+    			} 
 			j++;
 		}
+	    	if( j == 0 ){
+    			if( strncmp ( &line[j] , &fline[offset], length ) == 0 ){
+	    			printf(" Matching string found at line : %d , %d\n", lineNumber, offset+j);
+				printf(" Matching string = %s \n", line );
+				//fclose(f);
+				//return 0;
+    			} 
+			j++;
+		}
+
 	}
 }
 
@@ -96,14 +106,24 @@ for(;n<readline;) {
     } else {
 		int j = 0;
 		while( j < 108-length ) {
-    		if( strncmp ( &line[j] , &fline[offset], length ) == 0 ){
-	    		printf(" Matching string found at line : %d , %d\n", lineNumber, offset+j);
+    			if( strncmp ( &line[j] , &fline[offset], length ) == 0 ){
+	    			printf(" Matching string found at line : %d , %d\n", lineNumber, offset+j);
 				printf(" Matching string = %s \n", line );
 				//fclose(f);
 				//return 0;
-    		} 
+    			} 
 			j++;
 		}
+	    	if( j == 0 ){
+    			if( strncmp ( &line[j] , &fline[offset], length ) == 0 ){
+	    			printf(" Matching string found at line : %d , %d\n", lineNumber, offset+j);
+				printf(" Matching string = %s \n", line );
+				//fclose(f);
+				//return 0;
+    			} 
+			j++;
+		}
+
 	}
 	n++;
 }
