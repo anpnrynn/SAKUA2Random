@@ -28,6 +28,8 @@ int readline = atoi ( argv[2] );
 int offset = atoi( argv[3] );
 int length = atoi( argv[4] );
 int substring = atoi( argv[5] );
+int submatches = 0;
+int matches = 0;
 
 printf(" Searching for string on line %d, at offset %d and of length %d \n", readline, offset, length );
 printf(" Substring search %s \n", substring?"ON":"OFF" );
@@ -59,7 +61,7 @@ for(i=0;i<nlines;i++) {
 		goto loopexit;
     }
     if( lineNumber % 1000000 == 0 ){
-	    printf(" Searched %d lines \n", lineNumber );
+	    printf(" Searched %d lines  <<  %s  >> submatches=%d matches=%d\n", lineNumber, fline, submatches, matches );
 		printf( " String = '%s' \n", line );
     }
 
@@ -77,15 +79,17 @@ for(i=0;i<nlines;i++) {
 				printf(" Matching string : %s \n", line );
 				//fclose(f);
 				//return 0;
+				submatches++;
     			} 
 			j++;
 		}
 	    	if( j == 0 ){
-    			if( strncmp ( &line[j] , &fline[offset], length ) == 0 ){
+    			if( strncmp ( line , fline, length ) == 0 ){
 	    			printf(" Matching string found at line : %d , %d\n", lineNumber, offset+j);
 				printf(" Matching string = %s \n", line );
 				//fclose(f);
 				//return 0;
+				matches++;
     			} 
 			j++;
 		}
@@ -126,7 +130,7 @@ for(i=0;i<nlines && n<readline; i++) {
     }
 
     if( ln % 1000000 == 0 ){
-	    printf(" Searched %d lines \n", ln );
+	    printf(" Searched %d lines  <<  %s  >> submatches=%d matches=%d\n", ln, fline, submatches, matches );
 		printf( " String = '%s' \n", line );
     }
 
@@ -143,15 +147,17 @@ for(i=0;i<nlines && n<readline; i++) {
 				printf(" Matching string : %s \n", line );
 				//fclose(f);
 				//return 0;
+				submatches++;
     			} 
 			j++;
 		}
 	    	if( j == 0 ){
-    			if( strncmp ( &line[j] , &fline[offset], length ) == 0 ){
+    			if( strncmp ( line , fline, length ) == 0 ){
 	    			printf(" Matching string found at line : %d , %d\n", lineNumber, offset+j);
 				printf(" Matching string = %s \n", line );
 				//fclose(f);
 				//return 0;
+				matches++;
     			} 
 			j++;
 		}
