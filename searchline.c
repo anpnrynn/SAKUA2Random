@@ -69,7 +69,7 @@ for(;;) {
 		}
 		if( j == 0 ){
 			//printf(" %s =? %s \n", line, fline );
-    			if( strncmp ( &line[j] , &fline[offset], length ) == 0 ){
+    			if( strncmp ( line , fline, length ) == 0 ){
 	    			printf(" Matching string found at line : %d , %d\n", lineNumber, offset+j);
 				printf(" Matching string = %s \n", line );
 				matches++;
@@ -121,7 +121,7 @@ for(;n<readline;) {
 		}
 		if( j == 0 ){
 			//printf(" %s =? %s \n", line, fline );
-    			if( strncmp ( &line[j] , &fline[offset], length ) == 0 ){
+    			if( strncmp ( line, fline, length ) == 0 ){
 	    			printf(" Matching string found at line : %d , %d\n", lineNumber, offset+j);
 				printf(" Matching string = %s \n", line );
 				matches++;
