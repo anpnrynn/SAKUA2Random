@@ -100,39 +100,27 @@ Each of the pattern matrix is 6x6 matrix.
 Third Party Secure Key Communication
 ====================================
 
-There are three parties involved.    
-• SAKUA2Random String generated site (The third party)   
-• The End-User   
-• The Website or Service Provider the End-User wishes to work with.   
+SAKUA2Random, produces around some 150 Million 108 character long random strings. This is just a test program, not perfect in anyway.    
+  
+There are three parties involved.     
+•	SAKUA2Random String generated site (The third party KeyServer)    
+•	The End-User    
+•	The Website or Service Provider the End-User wishes to work with.    
+ 
+The End-User installs an app from the random strings generator site (KeyServer), the app downloads 150Million+ 108 character long random strings. The random strings file content can change over time but the ID remains the same.    
+  
+The 150Million+ 108 character long random strings file is then shuffled so as to generate around 8 Billion+ combinations or more for various other users.    
 
-The End-User installs an app from the random strings generator site, the app downloads 
-150Million+ 108 character long random strings file per device.    
+Each user registers with a website and uses their username along with the random strings file ID. An Id is used to represent the random strings file.    
 
-The SAKUA2Random Strings Site (keyserver) will create one 150Million+ 108 character 
-long random strings file, which is then shuffled around keeping the strings intact, but 
-the order changed to generate around 8 Billion+ combinations, which are used by 
-devices belonging to other users. Each user registers the (n)sites and usernames with 
-the random strings file.   
+The End-User accesses the site, Let’s say Gmail.com (server). Gmail.com sends the string index along with a list of indices. These indices represent the offset of characters amongst the random strings (offsets amongst the 150Million+ strings). The values together in these indices represents the shared key. Which could optionally be mixed in with the password to create an even more secure shared key.    
 
-The End-User accesses the site, Let’s say Gmail.com (server). Gmail.com uses one of 
-the daily strings (random search string) and sends the string along with a list of indices.
-These indices represent the offset from the end location of the random search string. 
-The values together in these indices represent the shared key. Which could optionally 
-be mixed in with the password to create an even more secure shared key.    
+The End-User then sends his username and uses the encrypted key to create a secure connection.  This would authenticate and authorize the user.   
 
-The End-User’s app then uses these indices which it receives over TCP to calculate the 
-shared key, from its version of the random strings file, the indices are at an offset from 
-the end of the search string which is present in all 8 billion+ versions of the file, 
-including the one with Gmail.   
+At the server-end which is Gmail in this case, it contacts SAKUA2Random Strings Site (KeyServer) sends the random strings file ID, string index and offsets and retrieves the shared key. Which is then used to decrypt the data from the End-User and send encrypted messages to the End-User.    
 
-The End-User then sends his username and uses the encrypted key to create a secure 
-connection.      
-
-At the server-end which is Gmail in this case, it contacts SAKUA2Random Strings Site
-(keyserver) sends the username and retrieves the shared key. Which is then used to 
-decrypt the data from the End-User and vice versa.
-The random strings file can be regenerated every week or so to improve the security of 
-the End-User / Server.   
+The random strings file can be regenerated every week or so to improve the security.   
+         
 
 Public Key Method
 =================
