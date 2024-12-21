@@ -16,11 +16,22 @@ SAKUA
 -----
 Shared Access Key User Authentication
 SAKUA is similar to SAKA but the User first registers online using SSL/TLS and then the encryption layer is provided by SAKUA.
+
+METHOD-1 :    
+-----------    
 ![SAKUA how it works ](https://github.com/anpnrynn/SAKUA2Random/blob/main/SAKUA2.png) 
 
 
 ![SAKUA Questions the user is prompted with ](https://github.com/anpnrynn/SAKUA2Random/blob/main/SAKUA2-Questions.png)
       
+METHOD 2 :   
+-----------    
+is Third Party Secure Key Communication.
+
+
+METHOD 3:    
+---------    
+Mentioned in the PPTX file.    
 
 
 Please Also See, Original repository:
