@@ -32,6 +32,9 @@ is Third Party Secure Key Communication.
 METHOD 3:    
 ---------    
 Mentioned in the PPTX file.    
+SAKUA – Shared Access Key User Authentication - Method 3.pptx       
+
+![SAKUA Method3 ](https://github.com/anpnrynn/SAKUA2Random/blob/main/SAKUA%20%E2%80%93%20Shared%20Access%20Key%20User%20Authentication%20-%20Method%203.gif)    
 
 
 Please Also See, Original repository:
@@ -43,7 +46,7 @@ https://github.com/anpnrynn/dominopassword repository was removed by me as it wa
 
 
 DominoPassword C implementation for:
-------------------------------------
+------------------------------------ 
 1. GEN1   - Last update in 2023
 2. GEN1_1 - Last update in 07-Apr-2024 - Reduction of conflicts (Heavily modified from original SAKUA2 algo) 
 3. GEN2   - Last update in Jan-2023 
