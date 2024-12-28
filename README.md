@@ -88,9 +88,11 @@ searchline
 Domino Password : Password generation APK
 =========================================   
 The APK / android application comes with no waranties, its for generating passwords for website / applications. The Initial purpose for which I wrote this application. It doesn't store the pattern / passwords only the website / applicaiton name and pin , you will have to remember the pattern.    
-Uninstalling the app and reinstalling the app causes the saved pins to be deleted, use caution, use a backup.   
+Uninstalling the app and reinstalling the app causes the saved pins to be deleted, use caution, use a backup.    
+The latest app is LowRes-DominoPassword-202412.apk (NEW APP), there are no new changes or addition except that now instead of an webapp, its full android app. You don't even have to change.    
+The new app may require the old one to be uninstalled, so, Please take screen shots so that you may remember the pins used in the app.   
 
-Use dominopassword.apk or LowRes_dominopassword.apk(low res, FHD phones).    
+Use dominopassword.apk or LowRes_dominopassword.apk(low res, FHD phones).(OLD APP)    
 DominoPassword algorithm uses GEN2 (Password gen algo)   
 SAKUA2 is supposed to use GEN2_1 or GEN1_1 (Crypto string gen algo) 
 
